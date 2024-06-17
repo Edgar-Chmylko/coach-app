@@ -1,0 +1,19 @@
+.form-container {
+  border: 1px solid #e9e7e7;
+  padding: 2rem;
+  margin: auto;
+  width: 560px;
+  box-shadow: 2px 2px 5px rgb(206, 206, 206);
+}
+
+.form-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width:580px) {
+
+    .form-container {
+      width: auto;
+    }
+}

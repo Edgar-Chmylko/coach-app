@@ -1,0 +1,19 @@
+.icon-btn {
+  cursor: pointer;
+  border: 1px solid #f5f5f5;
+  padding: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.list-item {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  gap: 2rem;
+  padding-bottom: 4px;
+  box-sizing: border-box;
+}
+
+.main-list {
+  box-shadow: 2px 2px 5px rgb(206, 206, 206);
+}

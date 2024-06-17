@@ -1,0 +1,36 @@
+<div class="form-container">
+  <form nz-form [formGroup]="form">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24">Full Name</nz-form-label>
+      <nz-form-control [nzErrorTip]="getErrorMessage('fullName')">
+        <input nz-input formControlName="fullName" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24">Email</nz-form-label>
+      <nz-form-control [nzErrorTip]="getErrorMessage('email')">
+        <input nz-input formControlName="email" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24">Select Coach</nz-form-label>
+      <nz-form-control>
+        <nz-select formControlName="managerId">
+          @for (coach of coaches(); track coach.id) {
+          <nz-option
+            [nzValue]="coach.id"
+            [nzLabel]="coach.fullName"
+          ></nz-option>
+          }
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <app-button
+      [title]="'Create'"
+      [disabled]="form.invalid"
+      (onClick)="onSubmit()"
+      class="form-btn"
+    ></app-button>
+  </form>
+</div>

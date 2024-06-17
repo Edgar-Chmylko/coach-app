@@ -1,0 +1,40 @@
+<ul nz-list nzBordered nzSize="large" class="main-list">
+  <nz-list-header>Coaches</nz-list-header>
+  @for(coach of sortedCoaches(); track coach.id) {
+    <li nz-list-item nzNoFlex>
+      <ng-container
+        *ngTemplateOutlet="listItem; context: { $implicit: coach, parent: null }"
+      ></ng-container>
+    </li>
+  }
+  <ng-template #listItem let-coach let-parent="parent">
+    <li nz-list-item nzNoFlex>
+      <div class="list-item">
+        <p>{{ coach.fullName }}</p>
+        <p>{{ coach.email }}</p>
+        <p>{{ getManagerName(coach.managerId) }}</p>
+
+        @if (sortedCoaches().length > 1 || coach.children.length > 0 || coach.managerId) {
+          <div>
+            <span nz-icon nzType="close" nzTheme="outline" class="icon-btn" (click)="removeCoach(coach.id)"></span>
+            @if (parent && parent.children.length > 1) {
+              <span nz-icon nzType="down" nzTheme="outline" class="icon-btn" (click)="demoteCoach(coach.id)"></span>
+            }
+            @if (coach.managerId) {
+              <span nz-icon nzType="up" nzTheme="outline" class="icon-btn" (click)="promoteCoach(coach.id)"></span>
+            }
+          </div>
+        } 
+      </div>
+      @if (coach.children.length) {
+        <ul>
+          @for(subCoach of coach.children; track subCoach.id) {
+            <ng-container
+              *ngTemplateOutlet="listItem; context: { $implicit: subCoach, parent: coach }"
+            ></ng-container>
+          }
+        </ul>
+      }
+    </li>
+  </ng-template>
+</ul>

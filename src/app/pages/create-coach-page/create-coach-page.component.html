@@ -1,0 +1,5 @@
+<app-button [title]="'Back'" [type]="'default'" (click)="back()"></app-button>
+
+<nz-divider></nz-divider>
+<h1 class="page-header">Coach Form</h1>
+<app-coach-form (coachToSubmit)="onSubmit($event)"></app-coach-form>

@@ -1,0 +1,7 @@
+<div class="content-container">
+  <app-button [title]="'Create Coach'" (onClick)="createCoach()" class="btn"></app-button>
+
+  <nz-divider></nz-divider>
+  <h1 class="page-header">Coach List</h1>
+  <app-coach-list [coaches]="coaches()"></app-coach-list>
+</div>

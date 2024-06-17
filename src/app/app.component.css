@@ -1,0 +1,14 @@
+.container {
+  width: 70%;
+  height: 100vh;
+  margin: auto;
+  padding: 3rem;
+  background-color: white;
+  box-shadow: 0 0 50px rgb(206, 206, 206);
+}
+
+@media screen and (max-width: 980px){
+  .container {
+    width: 100%;
+  }
+}
